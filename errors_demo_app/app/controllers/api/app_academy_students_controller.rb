@@ -1,5 +1,6 @@
 class Api::AppAcademyStudentsController < ApplicationController
   def create
+    sleep 2
     @student = AppAcademyStudent.new(student_params)
     if @student.save
       render json: @student
