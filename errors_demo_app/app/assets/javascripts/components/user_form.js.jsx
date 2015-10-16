@@ -1,30 +1,11 @@
 UserForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
-  statuses: {
-    none: 'none',
-    success: 'success',
-    error: 'error',
-    pending: 'pending'
-  },
-
-  _creationEventHandler: function (eventType, payload) {
-    switch (eventType) {
-      case UserConstants.USER_CREATION_SUCCESS:
-        this.setState({ status: this.statuses.success });
-        break;
-      case UserConstants.USER_CREATION_ERROR:
-        this.setState({
-          status: this.statuses.error,
-          errors: payload 
-        });
-        break;
-      case UserConstants.USER_CREATION_PENDING:
-        this.setState({ status: this.statuses.pending });
-        break;
-      default: 
-        this.setState({ status: this.statuses.none });
-    }
+  _creationEventHandler: function () {
+    this.setState({ 
+      status: UserStore.getStatus(),
+      errors: UserStore.getErrors()
+    });
   },
   
   getInitialState: function () {
@@ -35,8 +16,8 @@ UserForm = React.createClass({
       city: 'San Francisco',
       love_for_javascript: '2',
       favorite_ta: 'Eric',
-      status: this.statuses.none,
-      errors: []
+      status: UserStore.getStatus(),
+      errors: UserStore.getErrors()
     });
   },
 
