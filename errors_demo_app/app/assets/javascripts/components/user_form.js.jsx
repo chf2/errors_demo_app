@@ -45,10 +45,10 @@ UserForm = React.createClass({
   render: function () {
     var errors = "", disabled = "", note = "", selected;
 
-    if (this.state.status === this.statuses.pending) {
+    if (this.state.status === UserConstants.CREATION_STATUSES.PENDING) {
       note = "Creating new user..."
       disabled = "disabled";
-    } else if (this.state.status === this.statuses.error) {
+    } else if (this.state.status === UserConstants.CREATION_STATUSES.ERROR) {
       note = "There were problems with your form submission. \n Please review and resubmit.";
       errors = 
         <ul>
@@ -58,7 +58,7 @@ UserForm = React.createClass({
             })
           }
         </ul>;
-    } else if (this.state.status === this.statuses.success) {
+    } else if (this.state.status === UserConstants.CREATION_STATUSES.SUCCESS) {
       note = "User successfully created!";
       disabled = true;
     }

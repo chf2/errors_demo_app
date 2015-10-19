@@ -3,14 +3,7 @@
 
   var _errors = [];
 
-  var CREATION_STATUSES = {
-    NONE: 'NONE',
-    SUCCESS: 'SUCCESS',
-    ERROR: 'ERROR',
-    PENDING: 'PENDING'
-  };
-
-  var _currentStatus = CREATION_STATUSES.NONE;
+  var _currentStatus = UserConstants.CREATION_STATUSES.NONE;
 
   var setStatus = function (status) {
     _currentStatus = status;
