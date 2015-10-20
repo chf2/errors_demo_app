@@ -46,16 +46,16 @@
       switch (payload.actionType) {
         case UserConstants.USER_CREATION_SUCCESS:
           addUser(payload.user);
-          setStatus(CREATION_STATUSES.SUCCESS);
+          setStatus(UserConstants.CREATION_STATUSES.SUCCESS);
           UserStore.emit(USER_CREATION_EVENT)
           break;
         case UserConstants.USER_CREATION_ERROR:
           populateErrors(payload.errors);
-          setStatus(CREATION_STATUSES.ERROR);
+          setStatus(UserConstants.CREATION_STATUSES.ERROR);
           UserStore.emit(USER_CREATION_EVENT);
           break;
         case UserConstants.USER_CREATION_PENDING:
-          setStatus(CREATION_STATUSES.PENDING);
+          setStatus(UserConstants.CREATION_STATUSES.PENDING);
           UserStore.emit(USER_CREATION_EVENT)
           break;
       }
